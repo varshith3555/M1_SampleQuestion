@@ -12,7 +12,7 @@
             {
                 string str = Console.ReadLine();
 
-                if (!IsValid(str))
+                if(!IsValid(str))
                 {
                     Console.WriteLine("Invalid Sentence");
                 }
@@ -26,7 +26,7 @@
             {
                 foreach(char c in str)
                 {
-                    if (!char.IsLetter(c) && c != ' ')
+                    if(!char.IsLetter(c) && c != ' ')
                     {
                         return false;
                     }
