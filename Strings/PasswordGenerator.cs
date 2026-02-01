@@ -1,22 +1,6 @@
 using System.Text.RegularExpressions;
 public class PasswordGenerator
 {
-    public static void Main()
-    {
-        System.Console.WriteLine("Enter the username");
-        string str = Console.ReadLine()!;
-
-        if (!IsValidUsername(str))
-        {
-            System.Console.WriteLine(str + "  is an invalid username");
-            return;
-        }
-        else
-        {
-            string password = GeneratePassword(str);
-            Console.WriteLine("Password: " + password);
-        }
-    }
     public static bool IsValidUsername(string str)
     {
         if(!Regex.IsMatch(str, "^[A-Z]{4}@(10[1-9]|11[0-5])$"))
@@ -36,4 +20,20 @@ public class PasswordGenerator
         return "TECH_" + sum + lastTwoDigits;
     }
 
+    public static void Main()
+    {
+        System.Console.WriteLine("Enter the username");
+        string str = Console.ReadLine()!;
+
+        if (!IsValidUsername(str))
+        {
+            System.Console.WriteLine(str + "  is an invalid username");
+            return;
+        }
+        else
+        {
+            string password = GeneratePassword(str);
+            Console.WriteLine("Password: " + password);
+        }
+    }
 }
