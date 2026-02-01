@@ -1,62 +1,39 @@
-using System;
-
-namespace TechXamApp
+using System.Text.RegularExpressions;
+public class PasswordGenerator
 {
-    public class Ques2
+    public static void Main()
     {
-        public static bool IsValidUsername(string username)
+        System.Console.WriteLine("Enter the username");
+        string str = Console.ReadLine()!;
+
+        if (!IsValidUsername(str))
         {
-            if(username.Length != 8)
-                return false;
-
-            for(int i = 0; i < 4; i++)
-            {
-                if(!char.IsUpper(username[i]))
-                    return false;
-            }
-
-            if(username[4] != '@')
-                return false;
-
-            for(int i = 5; i < 8; i++)
-            {
-                if(!char.IsDigit(username[i]))
-                    return false;
-            }
-
-            int courseId = int.Parse(username.Substring(5));
-            if(courseId < 101 || courseId > 115)
-                return false;
-            return true;
+            System.Console.WriteLine(str + "  is an invalid username");
+            return;
         }
-
-        public static string GeneratePassword(string username)
+        else
         {
-            int asciiSum = 0;
-            for(int i = 0; i < 4; i++)
-            {
-                char ch = char.ToLower(username[i]);
-                asciiSum += (int)ch;
-            }
-
-            string lastTwoDigits = username.Substring(6);
-            return "TECH_" + asciiSum + lastTwoDigits;
-        }
-
-        public static void Main()
-        {
-            Console.WriteLine("Enter the username");
-            string username = Console.ReadLine();
-
-            if(!IsValidUsername(username))
-            {
-                Console.WriteLine(username + " is an invalid username");
-            }
-            else
-            {
-                string password = GeneratePassword(username);
-                Console.WriteLine("Password: " + password);
-            }
+            string password = GeneratePassword(str);
+            Console.WriteLine("Password: " + password);
         }
     }
+    public static bool IsValidUsername(string str)
+    {
+        if(!Regex.IsMatch(str, "^[A-Z]{4}@(10[1-9]|11[0-5])$"))
+        {
+            return false;
+        }
+        return true;
+    }
+    public static string GeneratePassword(string str)
+    {
+        int sum = 0;
+        for(int i = 0; i < 4; i++)
+        {
+            sum += char.ToLower(str[i]);
+        }
+        string lastTwoDigits = str.Substring(6, 2);
+        return "TECH_" + sum + lastTwoDigits;
+    }
+
 }
