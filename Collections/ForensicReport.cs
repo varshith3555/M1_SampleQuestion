@@ -1,6 +1,6 @@
 using System;
 
-public class Report
+public class ForensicReport
 {
     private Dictionary<string, DateTime> reportMap = new Dictionary<string, DateTime>();
     public Dictionary<string, DateTime> ReportMap
@@ -24,7 +24,7 @@ public class UserInterface2
 {
     public static void Main()
     {
-        Report r = new Report();
+        ForensicReport r = new ForensicReport();
         System.Console.WriteLine("Enter number of reports to be added");
         int n = int.Parse(Console.ReadLine()!);
 
