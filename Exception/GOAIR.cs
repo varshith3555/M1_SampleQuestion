@@ -39,16 +39,15 @@ public class UserInterface1
     public static void Main()
     {
         System.Console.WriteLine("Enter the number of entries");
-        int no = int.Parse(Console.ReadLine());
+        int no = int.Parse(Console.ReadLine()!);
         for(int i = 1; i <= no; i++)
         {
             Console.WriteLine($"Enter entry {i} details");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
             try
             {
                 string[] parts = input.Split(':');
-
                 string employeeId = parts[0];
                 int duration = int.Parse(parts[2]);
 
