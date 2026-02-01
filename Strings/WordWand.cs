@@ -1,71 +1,46 @@
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using System.Text;
-
-    namespace MyConsoleApp.Day17_M1Prac
+public class WordWand
+{
+    public static bool IsValid(string str)
     {
-        public class StringQues1
+        foreach(var c in str)
         {
-
-            public static void Main()
+            if(!char.IsLetter(c) && c != ' ')
             {
-                string str = Console.ReadLine();
-
-                if(!IsValid(str))
-                {
-                    Console.WriteLine("Invalid Sentence");
-                }
-                else
-                {
-                    string result = WordWand(str);
-                    System.Console.WriteLine(result);
-                }
-            }
-            public static bool IsValid(string str)
-            {
-                foreach(char c in str)
-                {
-                    if(!char.IsLetter(c) && c != ' ')
-                    {
-                        return false;
-                    }
-
-                }
-                return true;
-            }  
-            public static string WordWand(string str)
-            {
-                string res = "";
-                string[] words = str.Split(" ");
-            
-                    if(words.Length % 2 == 0)
-                    {
-                        int i=0;
-                        int j=words.Length - 1;
-                        while (i < j)
-                        {
-                            var temp = words[i];
-                            words[i] = words[j];
-                            words[j] = temp;
-                            i++;
-                            j--;
-                        }
-                    
-                    for(int m=0;m<words.Length;m++)
-                    {
-                        res += words[m] + " ";
-                    }
-                }
-                else
-                {
-                    foreach(string c in words)
-                    {
-                        var a = c.Reverse().ToArray();
-                        res += new string(a) + " ";
-                    }
-                }
-                return res;
+                return false;
             }
         }
+        return true;
     }
+
+    public static void Main()
+    {
+        System.Console.WriteLine("Enter the sentence");
+        string sen = Console.ReadLine()!;
+
+        if (!IsValid(sen))
+        {
+            System.Console.WriteLine("Invalid Sentence");
+            return;
+        }
+
+        string res = "";
+        string[] words = sen.Split(" ");
+        if(words.Length % 2 == 0)
+        {
+            for(int i=words.Length - 1; i >= 0; i--)
+            {
+                res += words[i] + " "; 
+            }
+        }
+        else
+        {
+            foreach(var i in words)
+            {
+                char[] arr = i.ToCharArray();
+                Array.Reverse(arr);
+                res += new string(arr) + " ";
+            }
+        }
+        System.Console.WriteLine(res);
+    }
+}
