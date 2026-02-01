@@ -34,7 +34,7 @@ public class EntryUtility
     }
 }
 
-public class UserInterface
+public class UserInterface1
 {
     public static void Main()
     {
