@@ -27,32 +27,25 @@ public class Cake
         for(int i = 1; i <= n; i++)
         {
             string? input = Console.ReadLine();
-            if (input != null)
-            {
-                string[] parts = input.Split(":");
-                if (parts.Length == 2)
-                {
-                    c.addOrderDetails(parts[0], double.Parse(parts[1]));
-                }
-            }
+            string[] parts = input.Split(":");
+            c.addOrderDetails(parts[0], double.Parse(parts[1]));
         }
 
         System.Console.WriteLine("Enter the cost to search the cake orders");
         double cost = double.Parse(Console.ReadLine()!);
-        
-        Dictionary<string, double> result = c.findOrdersAboveSpecifiedCost(cost);
-        
-        if (result.Count > 0)
+ 
+        var orders = c.findOrdersAboveSpecifiedCost(cost);
+        if (orders.Count > 0)
         {
-            System.Console.WriteLine("Cake Orders above the specified cost");
-            foreach (var order in result)
+            Console.WriteLine("Cake Orders above the specified cost");
+            foreach(var item in orders)
             {
-                System.Console.WriteLine($"Order ID: {order.Key}, Cake Cost: {order.Value}");
+                Console.WriteLine($"Order ID: {item.Key}, Cake Cost: {item.Value}");
             }
         }
         else
         {
-            System.Console.WriteLine("No orders found above the specified cost");
+            Console.WriteLine("No cake orders found");
         }
     }
 }
