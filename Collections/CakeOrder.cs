@@ -15,7 +15,7 @@ public class CakeOrder
     }
 }
 
-public class Cake
+public class UserInterface1
 {
     public static void Main()
     {
