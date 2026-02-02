@@ -1,9 +1,17 @@
-obj/
-bin/
-FlipKey.csproj
-Exception/Exception.csproj
-Collections/Collections.csproj
+# Ignore all folders except M1_Assessment
+Collections/
+EmployeeManagementSystem/
+Exception/
+HotelRoomBooking/
+Interface/
+LMS/
+Strings/
+
+# Ignore solution file and workspace settings
 M1_Prac.sln
-.vscode
-Strings/Password_Generator2.cs
-Interface/Interface.csproj
+.vscode/
+
+# Ignore build artifacts globally
+**/obj/
+**/bin/
+
