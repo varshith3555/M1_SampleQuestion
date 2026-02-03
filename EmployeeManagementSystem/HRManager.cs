@@ -1,6 +1,6 @@
 class HRManager
 {
-    public SortedDictionary<int, Employee> emp = new SortedDictionary<int, Employee>();
+    private SortedDictionary<int, Employee> emp = new SortedDictionary<int, Employee>();
     public void AddEmployee(string name, string dept, double salary)
     {
         int id = emp.Count + 1;
