@@ -7,6 +7,6 @@ M1_Prac.sln
 .vscode
 Strings/Password_Generator2.cs
 Interface/Interface.csproj
-EmployeeManagementSystem/
+EmployeeManagementSystem/EmployeeManagementSystem.csproj
 HotelRoomBooking/HRB.csproj
 LMS/SBQues.csproj
