@@ -2,12 +2,12 @@ using System.Runtime.InteropServices;
 
 public class HotelManager
 {
-    public Dictionary<int, Room> rooms = new Dictionary<int, Room>();
+    private Dictionary<int, Room> rooms = new Dictionary<int, Room>();
     public void AddBook(int roomNumber, string type, double price)
     {
         if (!rooms.ContainsKey(roomNumber))
         {
-            rooms.Add(new Room
+            rooms.Add(roomNumber, new Room
             {
                 RoomNumber = roomNumber,
                 RoomType = type,
@@ -24,7 +24,7 @@ public class HotelManager
     {
         if(rooms.ContainsKey(roomNumber) && rooms[roomNumber].IsAvailable)
         {
-            double totalCost = roomNumber * nights;
+            double totalCost = rooms[roomNumber].RatePerNight * nights;
             rooms[roomNumber].IsAvailable = false;
             System.Console.WriteLine(totalCost);
             return true;

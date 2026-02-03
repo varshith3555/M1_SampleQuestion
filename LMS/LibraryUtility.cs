@@ -4,7 +4,7 @@ using System.Linq;
 
 class LibraryUtility
 {
-    public SortedDictionary<int, Book> books = new SortedDictionary<int, Book>();
+    private SortedDictionary<int, Book> books = new SortedDictionary<int, Book>();
     public void AddBook(string title, string author, string genre, int publicationYear)
     {
         int Key = books.Count + 1;

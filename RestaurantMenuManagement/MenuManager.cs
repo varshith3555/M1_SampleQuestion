@@ -2,7 +2,7 @@ namespace RestaurantMenuManagement;
 
 class MenuManager
 {
-    public Dictionary<int, MenuItem> menu = new Dictionary<int, MenuItem>();
+    private Dictionary<int, MenuItem> menu = new Dictionary<int, MenuItem>();
 
     public void AddMenuItem(string name, string category, double price, bool isVeg)
     {
