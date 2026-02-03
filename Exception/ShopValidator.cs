@@ -47,7 +47,7 @@ public class UserInterface2
             string? input = Console.ReadLine();
             try
             {
-                string[] parts = input.Split(":");
+                string[] parts = input!.Split(":");
                 g.validateGadgetID(parts[0]);
                 g.validateWarrantyPeriod(int.Parse(parts[2]));
                 System.Console.WriteLine("Warranty accepted, stock updated");

@@ -11,6 +11,12 @@ EmployeeManagementSystem/EmployeeManagementSystem.csproj
 HotelRoomBooking/HRB.csproj
 LMS/SBQues.csproj
 RestaurantMenuManagement/RestaurantMenuManagement.csproj
+
+
+
+Exception/Filereader.cs
+Exception/BonusCalculator.cs
+# do it later 
 E-commerceProductCatalog
 
 
